@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: rgb(240, 241, 142);
+            z-index: 100;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0px 0px 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            
+        }
+        .opening {
+            
+            padding: 100px 20px 30px;
+            font-size:30px;
+            text-align: center;
+            color:rgb(159, 95, 17);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0px 20px 30px;
+        }
+        .button {
+            color:#aa0606;
+            background-color:rgb(137, 225, 197);
+            border-radius: 999px;
+            font-size: 16px;
+            padding: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease, 
+            transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .button:hover {
+            background-color: #dc71ce;
+            box-shadow: none;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+   <header class="header">
+        <h2>👤 회원가입</h2> 
+        <a class="button" href="../1. my_intro_page/my_intro_page.html">소개 페이지로 돌아가기</a>
+    </header>
+    <div class="opening">
+        <h2>SKALA 광주 3반 2조의 회원가입을 환영합니다!</h2>
+    </div>
+    <div class="container">
+        <form action="result.html" method="get">
+            <fieldset>
+                <legend>계정 정보</legend>
+                <p>
+                    <label for="userID">아이디: </label>
+                    <input type="text" id="userID" name="userID"
+                    required minlength="4" maxlength="12" placeholder="4~15자 영문/숫자" pattern="[A-Za-z0-9]{4,12}"> 
+                    <small>(필수)</small>
+                </p>
+                <p>
+                    <label for="userPw">비밀번호: </label>
+                    <input type="password" id="userPw" name="userPw" minlength="8" 
+                    required placeholder="8자 이상 입력">
+                    <small>(필수)</small>
+                </p>
+                <p>
+                    <label for="phoneNum">전화번호: </label>
+                    <input type="tel" id="phoneNum" name="phoneNum" required 
+                    pattern="010-[0-9]{4}-[0-9]{4}" title="010-0000-0000 형식으로 입력해주세요" placeholder="010-0000-0000">
+                    <small>(필수)</small>
+                </p>
+                <p>
+                    <label for="userEmail">이메일: </label>
+                    <input type="text" id="userEmail" name="userEmail" required placeholder="example">
+                    @
+                    <select name="emailDomain" required>
+                        <option value="" disabled selected>-- 선택해주세요 --</option>
+                        <option value="direct">직접 입력</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="gmail.com">gmail.com</option>
+                        <option value="daum.net">daum.net</option>
+                    </select>
+                     <small>(필수)</small>
+                </p>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>개인 프로필 정보</legend>
+                <p>
+                    <label for="userName">이름: </label>
+                    <input type="text" id="userName" name="userName" required>
+                </p>
+                <p>
+                    <label for="userBirth">생년월일: </label>
+                    <input type="date" id="userBirth" name="userBirth">
+                </p>
+                <p>
+                    성별: 
+                    <label><input type="radio" name="gender" value="male"> 남성</label>
+                    <label><input type="radio" name="gender" value="female"> 여성</label>
+                    <label><input type="radio" name="gender" value="none"> 선택 안함</label>
+                </p>
+                <p>
+                    관심 분야(복수 선택 가능): <br>
+                    <label><input type="checkbox" name="interest" value="frontend"> 웹 프론트엔드 (Vue.js/HTML)</label><br>
+                    <label><input type="checkbox" name="interest" value="backend"> 웹 백엔드 (Node.js/Python)</label><br>
+                    <label><input type="checkbox" name="interest" value="uiux"> UI/UX 디자인 표준</label><br>
+                    <label><input type="checkbox" name="interest" value="ai"> 인공지능 (AI)</label><br>
+                </p>
+                <p>
+                    <label for="homeRegion">지역: </label>
+                    <select id="homeRegion" name="homeRegion">
+                        <option value="" disabled selected>-- 선택해주세요 --</option>
+                        <option value="seoul">서울/경기</option>
+                        <option value="busan">부산/경상도</option>
+                        <option value="gwangju">광주/전라도</option>
+                        <option value="other">기타</option>
+                    </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>자기소개</legend>
+                <p>
+                    <label for="intro">나를 표현하는 한 줄 소개 또는 가입 인사:</label><br>
+                    <textarea id="intro" name="intro" rows="5" cols="50" 
+                    placeholder="여기에 내용을 입력하세요 (최대 200자)"> </textarea>
+                </p>
+            </fieldset>
+
+            <br>
+            <p>
+                <input type="checkbox" id="agree" name="agree" required> 
+                <label for="agree">개인정보 수집 및 이용에 동의합니다. (필수)</label>
+            </p>
+            <input type="submit" class="btn-submit" value="동의하고 회원가입">
+            <input type="reset" class="btn-reset" value="다시 작성">
+        </form>
+
+    </div>
+    <script>
+        userBirth.max = new Date().toLocaleDateString("sv-SE");
+    </script>
+</body>
+</html>
